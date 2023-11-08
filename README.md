@@ -25,6 +25,10 @@ It will also improve the productivity of note-takers, journalist and busy profes
 - Edit transcribed text
 - Voice navigation
 
+### Technologies
+- Frontend: ReactJS
+- UI framework used: MUI
+
 ### Services
 
 - Voice recognition: React speech recognition
