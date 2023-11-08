@@ -1,13 +1,11 @@
 import { useState } from "react";
 
-import { Button } from "@mui/material";
+import { Button, Typography } from "@mui/material";
 
 function App() {
-  const [count, setCount] = useState(0);
-
   return (
     <>
-      <h2>Something Awesome</h2>
+      <Typography variant="h2">Building an amazing experience</Typography>
       <Button variant="outlined" color="error">
         Text me
       </Button>
