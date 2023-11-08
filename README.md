@@ -37,3 +37,15 @@ It will also improve the productivity of note-takers, journalist and busy profes
 ### Flow chart
 
     ![alt text](./src/assets/images/userflow.jpg)
+
+### Usage
+
+- git clone https://github.com/emmanuelkumah/chirrpy-latest.git
+- cd YourRepositoryName
+
+Run the following commands
+
+- npm install # this will create node_modules folder and package-lock.json
+- npm start # it will start your react app
+
+Now go to [URL](http://localhost:3000/) to visit your app
