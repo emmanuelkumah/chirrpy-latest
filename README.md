@@ -36,4 +36,5 @@ It will also improve the productivity of note-takers, journalist and busy profes
 
 ### Flow chart
 
-    ![alt text](./src/assets/images/userflow.jpg)
+![userflow](https://github.com/emmanuelkumah/chirrpy-latest/assets/5445592/9afcd834-7e83-4a52-a658-ae3336536826)
+
