@@ -5,13 +5,21 @@ export const theme = createTheme({
     primary: {
       main: "#F9E0AE",
       light: "#EADBC8",
+      contrastText: "#881600",
+      body: "#000",
+      altHeadingText: "#3A4454",
     },
-    secondary: {
-      main: "#EADBC8",
+  },
+  typography: {
+    heading: {
+      size: 50,
+      fontWeight: 500,
+      Patua: "Patua One",
     },
-    headingColors: {
-      main: "#881600",
-      paragraph: "#3A4454",
+    paragraph: {
+      font: "Poppins",
+      size: 18,
+      fontWeight: 300,
     },
   },
   shape: {
