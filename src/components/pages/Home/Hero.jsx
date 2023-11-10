@@ -1,6 +1,5 @@
 import { Typography } from "@mui/material";
 import React from "react";
-Grid;
 
 const Hero = () => {
   return (
