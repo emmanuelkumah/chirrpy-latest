@@ -13,8 +13,8 @@ export const theme = createTheme({
   typography: {
     heading: {
       size: 50,
-      fontWeight: 500,
-      Patua: "Patua One",
+      weight: 500,
+      font: "Montserrat",
     },
     paragraph: {
       font: "Poppins",

@@ -6,6 +6,7 @@ import {
   Stack,
   Button,
   styled,
+  Paper,
 } from "@mui/material";
 import CssBaseline from "@mui/material/CssBaseline";
 import { theme } from "../../../theme";
@@ -21,18 +22,21 @@ const Hero = () => {
     justifyContent: "center",
     gap: theme.spacing(5),
     marginTop: theme.spacing(4),
-    // [theme.breakpoints.down("md")]: {
-    //   flexDirection: "column",
-    //   alignItems: "center",
-    //   textAlign: "center",
-    // },
   }));
-  const Heading = styled(Typography)(({ theme }) => ({
+
+  const HeadingOne = styled(Typography)(({ theme }) => ({
     fontSize: theme.typography.heading.size,
-    fontFamily: theme.typography.heading.Patua,
-    color: theme.palette.primary.contrastText,
-    // marginTop: theme.spacing(8),
+    fontWeight: theme.typography.heading.weight,
+    fontFamily: theme.typography.heading.font,
+    color: theme.palette.primary.altHeadingText,
   }));
+  const HeadingTwo = styled(Typography)(({ theme }) => ({
+    fontWeight: theme.typography.heading.weight,
+    fontSize: theme.typography.heading.size,
+    fontFamily: theme.typography.heading.font,
+    color: theme.palette.primary.contrastText,
+  }));
+
   const Description = styled(Typography)(({ theme }) => ({
     fontSize: theme.typography.paragraph.size,
     fontFamily: theme.typography.paragraph.font,
@@ -53,23 +57,54 @@ const Hero = () => {
     width: "185px",
     textTransform: "capitalize",
   }));
-
+  const Item = styled(Paper)(({ theme }) => ({
+    height: "100px",
+    width: "300px",
+    lineHeight: "60px",
+    padding: "20px 10px",
+    position: "absolute",
+    bottom: "-15%",
+    right: "-5%",
+    borderRadius: "10px",
+  }));
+  const Item2 = styled(Paper)(({ theme }) => ({
+    height: "100px",
+    width: "300px",
+    lineHeight: "60px",
+    padding: "20px 10px",
+    position: "absolute",
+    top: "5%",
+    borderRadius: "10px",
+  }));
+  const BlurBox = styled(Box)(() => ({
+    width: "100px",
+    height: "100px",
+    backdropFilter: "blur(3px)",
+    backgroundColor: "rgba(0,0,30,0.4)",
+  }));
   return (
     <>
       {/* <CssBaseline /> */}
-      <Box sx={{ backgroundColor: "#F9E0AE", minHeight: "80vh" }}>
+      <Box sx={{ backgroundColor: "#F9E0AE", minHeight: "90vh" }}>
         <Container>
           <Navbar />
           <HeroBox>
             <Box sx={{ flex: "1" }}>
-              <Heading>Expand Accessibility </Heading>
-              <Heading>Improve Productivity </Heading>
+              <Stack direction="row" spacing={2}>
+                <HeadingOne>Expand</HeadingOne>
+                <HeadingTwo>Accessibility</HeadingTwo>
+              </Stack>
+              <Stack direction="row" spacing={2}>
+                <HeadingOne>Improve</HeadingOne>
+                <HeadingTwo>Productivity</HeadingTwo>
+              </Stack>
 
               <Description>
                 Embrace the convenience of hands-free communication and
                 effortlessly transcribe your thoughts and ideas into written
                 form.
               </Description>
+              <BlurBox></BlurBox>
               <Box sx={{ marginTop: "2rem", marginBottom: "2rem" }}>
                 <Typography
                   sx={{
@@ -81,13 +116,13 @@ const Hero = () => {
                   Crafted for
                 </Typography>
                 <UsersBox>
-                  <Typography sx={{ fontFamily: "Patua One" }}>
+                  <Typography sx={{ fontFamily: "Roboto" }}>
                     Note Takers
                   </Typography>
-                  <Typography sx={{ fontFamily: "Patua One" }}>
+                  <Typography sx={{ fontFamily: "Roboto" }}>
                     People with typing disabilities
                   </Typography>
-                  <Typography sx={{ fontFamily: "Patua One" }}>
+                  <Typography sx={{ fontFamily: "Roboto" }}>
                     Content Creators
                   </Typography>
                 </UsersBox>
@@ -97,10 +132,61 @@ const Hero = () => {
                 <img src={playIcon} alt="heroImg" sx={{ maxWidth: "100%" }} />
               </Stack>
             </Box>
-            <Box sx={{ flex: "1" }}>
-              <Box>
-                <img src={heroImg} alt="heroImg" style={{ maxWidth: "100%" }} />
+            <Box sx={{ flex: "1", position: "relative" }}>
+              <Box
+                sx={{
+                  position: "absolute",
+                  bottom: "5%",
+                }}
+              >
+                <img src={heroImg} alt="heroImg" sx={{ maxWidth: "100%" }} />
               </Box>
+              <Item>
+                <Stack direction="row" spacing={1}>
+                  <Typography
+                    sx={{
+                      color: "#881600",
+                      fontSize: "2.5rem",
+                      fontFamily: "Roboto",
+                      fontWeight: 500,
+                    }}
+                  >
+                    10%
+                  </Typography>
+                  <Typography
+                    sx={{
+                      padding: "10px",
+                      fontSize: "14px",
+                      fontFamily: "Poppins",
+                    }}
+                  >
+                    Of the world’s population has dyslexia
+                  </Typography>
+                </Stack>
+              </Item>
+              <Item2>
+                <Stack direction="row" spacing={1}>
+                  <Typography
+                    sx={{
+                      color: "#881600",
+                      fontSize: "2.5rem",
+                      fontFamily: "Roboto",
+                      fontWeight: 500,
+                    }}
+                  >
+                    15%
+                  </Typography>
+                  <Typography
+                    sx={{
+                      padding: "10px",
+                      fontSize: "14px",
+                      fontFamily: "Poppins",
+                    }}
+                  >
+                    Of the world’s population has physical disability
+                  </Typography>
+                </Stack>
+              </Item2>
             </Box>
           </HeroBox>
         </Container>
