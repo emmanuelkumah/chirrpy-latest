@@ -1,5 +1,6 @@
 import Home from "./components/pages/Home/Home";
 import AppPage from "./components/pages/AppPage";
+import ResponsiveAppBar from "./components/pages/Home/Navbar";
 
 import { Routes, Route, Navigate } from "react-router-dom";
 
@@ -53,9 +54,11 @@ function App() {
 
   return (
     <>
-      {/* <Navbar /> */}
+      {/*Navigation */}
+      <ResponsiveAppBar />
       <Routes>
         <Route path="/" element={<Home />} />
+        <Route path="app" element={<AppPage />} />
       </Routes>
       <p id="transcript">Transcript: {transcript}</p>
       {redirect}

@@ -15,13 +15,13 @@ import React from "react";
 import Navbar from "./Navbar";
 import heroImg from "../../../assets/images/heroImage.png";
 import playIcon from "../../../assets/images/play.png";
+import ResponsiveAppBar from "./Navbar";
 
 const Hero = () => {
   const HeroBox = styled(Box)(({ theme }) => ({
     display: "flex",
     justifyContent: "center",
     gap: theme.spacing(5),
-    marginTop: theme.spacing(4),
   }));
 
   const HeadingOne = styled(Typography)(({ theme }) => ({
@@ -85,9 +85,9 @@ const Hero = () => {
   return (
     <>
       {/* <CssBaseline /> */}
-      <Box sx={{ backgroundColor: "#F9E0AE", minHeight: "90vh" }}>
+
+      <Box sx={{ backgroundColor: "#F9E0AE", minHeight: "80vh" }}>
         <Container>
-          <Navbar />
           <HeroBox>
             <Box sx={{ flex: "1" }}>
               <Stack direction="row" spacing={2}>

@@ -1,26 +1,87 @@
-import { AppBar, Box, IconButton, Toolbar, Typography } from "@mui/material";
+import {
+  AppBar,
+  Toolbar,
+  Typography,
+  Button,
+  Stack,
+  Box,
+  styled,
+  Container,
+} from "@mui/material";
+import * as React from "react";
 
-import React from "react";
+import { theme } from "../../../theme";
+import { Link } from "react-router-dom";
 
-//import { Link } from "react-router-dom";
+const pages = ["Home", "Why Chirrpy", "Use Case", "Features"];
+const settings = ["Profile", "Account", "Dashboard", "Logout"];
 
-const Navbar = () => {
+const StyledAppBar = styled(AppBar)(({ theme }) => ({
+  border: "none",
+  position: "sticky",
+}));
+const StyledToolbar = styled(Toolbar)(({ theme }) => ({
+  display: "flex",
+  justifyContent: "space-between",
+  paddingLeft: 0,
+  paddingRight: 0,
+}));
+
+const StyledBtn = styled(Button)(({ theme }) => ({
+  backgroundColor: theme.palette.primary.contrastText,
+}));
+
+function ResponsiveAppBar() {
   return (
-    <AppBar>
-      <Toolbar>
-        <Box sx={{ display: "flex", gap: "4rem" }}>
-          <Box>
-            <Typography variant="h6" component="div">
-              Chirrpy
+    <Box sx={{ backgroundColor: "#F9E0AE" }}>
+      <Container>
+        <StyledAppBar variant="outlined">
+          <StyledToolbar>
+            <Typography
+              variant="h6"
+              component="div"
+              sx={{ flexGrow: 1, color: "#fff" }}
+            >
+              News
             </Typography>
-          </Box>
-          <Box>
-            <Typography>This is another one</Typography>
-          </Box>
-        </Box>
-      </Toolbar>
-    </AppBar>
-  );
-};
 
-export default Navbar;
+            <Stack direction="row">
+              <Box>
+                {pages.map((page) => (
+                  <Button>
+                    <Link
+                      to={page}
+                      style={{
+                        textDecoration: "none",
+                        color: "#000",
+                        textTransform: "capitalize",
+                        fontSize: "18px",
+                      }}
+                    >
+                      {page}
+                    </Link>
+                  </Button>
+                ))}
+              </Box>
+              <Box>
+                <StyledBtn>
+                  <Link
+                    to="/app"
+                    style={{
+                      textDecoration: "none",
+                      textTransform: "capitalize",
+                      color: "#fff",
+                    }}
+                  >
+                    App
+                  </Link>
+                </StyledBtn>
+              </Box>
+            </Stack>
+          </StyledToolbar>
+        </StyledAppBar>
+      </Container>
+    </Box>
+  );
+}
+export default ResponsiveAppBar;
