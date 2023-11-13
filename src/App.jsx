@@ -22,7 +22,7 @@ function App() {
   const pages = ["home", "app"];
   const urls = {
     home: "/",
-    app: "/app",
+    app: "app",
   };
 
   const { transcript, browserSupportsSpeechRecognition } =
@@ -55,7 +55,7 @@ function App() {
   return (
     <>
       {/*Navigation */}
-      <ResponsiveAppBar />
+      <ResponsiveAppBar onStart={SpeechRecognition.startListening} />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="app" element={<AppPage />} />

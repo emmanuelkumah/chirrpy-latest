@@ -31,7 +31,7 @@ const StyledBtn = styled(Button)(({ theme }) => ({
   backgroundColor: theme.palette.primary.contrastText,
 }));
 
-function ResponsiveAppBar() {
+function ResponsiveAppBar({ onStart }) {
   return (
     <Box sx={{ backgroundColor: "#F9E0AE" }}>
       <Container>
@@ -46,6 +46,9 @@ function ResponsiveAppBar() {
             </Typography>
 
             <Stack direction="row">
+              <Button onClick={onStart} sx={{ backgroundColor: "green" }}>
+                <Typography>Start</Typography>
+              </Button>
               <Box>
                 {pages.map((page) => (
                   <Button>
