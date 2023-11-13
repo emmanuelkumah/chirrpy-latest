@@ -60,9 +60,9 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="app" element={<AppPage />} />
       </Routes>
-      <p id="transcript">Transcript: {transcript}</p>
+      {/* <p id="transcript">Transcript: {transcript}</p>
       {redirect}
-      <button onClick={SpeechRecognition.startListening}>Start</button>
+      <button onClick={SpeechRecognition.startListening}>Start</button> */}
     </>
   );
 }

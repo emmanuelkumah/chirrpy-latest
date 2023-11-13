@@ -4,10 +4,12 @@ export const theme = createTheme({
   palette: {
     primary: {
       main: "#F9E0AE",
-      light: "#EADBC8",
-      contrastText: "#881600",
-      body: "#000",
-      altHeadingText: "#3A4454",
+      brickRed: "#881600",
+      charcoal: "#3A4454",
+    },
+    secondary: {
+      main: "#EADBC8",
+      contrastText: "#080708",
     },
   },
   typography: {
@@ -18,7 +20,7 @@ export const theme = createTheme({
     },
     paragraph: {
       font: "Poppins",
-      size: 18,
+      size: 20,
       fontWeight: 300,
     },
   },

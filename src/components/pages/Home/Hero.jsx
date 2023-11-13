@@ -15,97 +15,122 @@ import React from "react";
 import Navbar from "./Navbar";
 import heroImg from "../../../assets/images/heroImage.png";
 import playIcon from "../../../assets/images/play.png";
-import ResponsiveAppBar from "./Navbar";
 
 const Hero = () => {
+  const HeroWrapper = styled(Box)(({ theme }) => ({
+    backgroundColor: theme.palette.primary.main,
+    minHeight: "100vh",
+  }));
   const HeroBox = styled(Box)(({ theme }) => ({
     display: "flex",
-    justifyContent: "center",
-    gap: theme.spacing(5),
+    flexDirection: "column",
+
+    [theme.breakpoints.up("sm")]: {
+      display: "flex",
+      flexDirection: "row",
+      justifyContent: "center",
+      gap: theme.spacing(5),
+    },
   }));
 
-  const HeadingOne = styled(Typography)(({ theme }) => ({
-    fontSize: theme.typography.heading.size,
-    fontWeight: theme.typography.heading.weight,
-    fontFamily: theme.typography.heading.font,
-    color: theme.palette.primary.altHeadingText,
+  const HeadingChar = styled(Typography)(({ theme }) => ({
+    fontSize: "2rem",
+    color: theme.palette.primary.charcoal,
+    [theme.breakpoints.up("sm")]: {
+      fontSize: theme.typography.heading.size,
+      fontWeight: theme.typography.heading.weight,
+      fontFamily: theme.typography.heading.font,
+      color: theme.palette.primary.charcoal,
+    },
   }));
-  const HeadingTwo = styled(Typography)(({ theme }) => ({
-    fontWeight: theme.typography.heading.weight,
-    fontSize: theme.typography.heading.size,
-    fontFamily: theme.typography.heading.font,
-    color: theme.palette.primary.contrastText,
+  const HeadingRed = styled(Typography)(({ theme }) => ({
+    fontSize: "2rem",
+    color: theme.palette.primary.brickRed,
+    [theme.breakpoints.up("sm")]: {
+      fontSize: theme.typography.heading.size,
+      fontWeight: theme.typography.heading.weight,
+      fontFamily: theme.typography.heading.font,
+      color: theme.palette.primary.altHeadingText,
+    },
   }));
 
   const Description = styled(Typography)(({ theme }) => ({
     fontSize: theme.typography.paragraph.size,
     fontFamily: theme.typography.paragraph.font,
     color: theme.palette.primary.body,
-    marginTop: theme.spacing(7),
+    marginTop: theme.spacing(2),
+    fontWeight: 100,
+  }));
+  const StyledBtnContainer = styled(Box)(() => ({
+    display: "flex",
+    justifyContent: "space-between",
+    marginBottom: "1rem",
   }));
   const UsersBox = styled(Box)(({ theme }) => ({
-    display: "flex",
-    justifyContent: "space-evenly",
-    borderLeft: "solid 3px",
-    borderRight: "solid 3px",
-
     borderColor: "#881600",
+    borderLeft: "4px solid #881600",
+    paddingLeft: "10px",
+    [theme.breakpoints.up("sm")]: {
+      display: "flex",
+      justifyContent: "space-evenly",
+      borderLeft: "solid 3px",
+      borderRight: "solid 3px",
+    },
   }));
-  const CustomBtn = styled(Button)(({ theme }) => ({
+  const StyledStack = styled(Stack)(() => ({
+    marginBottom: "1rem",
+    direction: "row",
+  }));
+  const TryBtn = styled(Button)(({ theme }) => ({
     backgroundColor: "#881600",
     color: "#fff",
     width: "185px",
     textTransform: "capitalize",
+    padding: "10px 5px",
+    fontSize: "1.3rem",
   }));
-  const Item = styled(Paper)(({ theme }) => ({
-    height: "100px",
+  const StyledStats1 = styled(Paper)(() => ({
+    height: "80px",
     width: "300px",
-    lineHeight: "60px",
-    padding: "20px 10px",
+    padding: "10px 10px",
     position: "absolute",
-    bottom: "-15%",
-    right: "-5%",
+    bottom: "-20%",
+    right: "5%",
     borderRadius: "10px",
   }));
-  const Item2 = styled(Paper)(({ theme }) => ({
-    height: "100px",
+  const StyledStats2 = styled(Paper)(() => ({
+    height: "80px",
     width: "300px",
     lineHeight: "60px",
-    padding: "20px 10px",
+    padding: "10px 10px",
     position: "absolute",
-    top: "5%",
+    top: "1%",
     borderRadius: "10px",
   }));
-  const BlurBox = styled(Box)(() => ({
-    width: "100px",
-    height: "100px",
-    backdropFilter: "blur(3px)",
-    backgroundColor: "rgba(0,0,30,0.4)",
+
+  const StyledImg = styled("img")(() => ({
+    width: "100%",
   }));
   return (
     <>
-      {/* <CssBaseline /> */}
-
-      <Box sx={{ backgroundColor: "#F9E0AE", minHeight: "80vh" }}>
+      <HeroWrapper>
         <Container>
           <HeroBox>
-            <Box sx={{ flex: "1" }}>
+            <Box sx={{ flex: "1", marginTop: "3rem" }}>
               <Stack direction="row" spacing={2}>
-                <HeadingOne>Expand</HeadingOne>
-                <HeadingTwo>Accessibility</HeadingTwo>
+                <HeadingChar>Expand</HeadingChar>
+                <HeadingRed>Accessibility</HeadingRed>
               </Stack>
               <Stack direction="row" spacing={2}>
-                <HeadingOne>Improve</HeadingOne>
-                <HeadingTwo>Productivity</HeadingTwo>
+                <HeadingChar>Improve</HeadingChar>
+                <HeadingRed>Productivity</HeadingRed>
               </Stack>
-
               <Description>
                 Embrace the convenience of hands-free communication and
                 effortlessly transcribe your thoughts and ideas into written
                 form.
               </Description>
-              <BlurBox></BlurBox>
-              <Box sx={{ marginTop: "2rem", marginBottom: "2rem" }}>
+              <Box sx={{ marginTop: "1rem", marginBottom: "2rem" }}>
                 <Typography
                   sx={{
                     fontFamily: "Passions Conflict",
@@ -127,70 +152,76 @@ const Hero = () => {
                   </Typography>
                 </UsersBox>
               </Box>
-              <Stack direction="row" spacing={8}>
-                <CustomBtn>Try it now</CustomBtn>
-                <img src={playIcon} alt="heroImg" sx={{ maxWidth: "100%" }} />
-              </Stack>
+              <StyledBtnContainer>
+                <Box>
+                  <TryBtn>Try it now</TryBtn>
+                </Box>
+                <Box sx={{ display: "flex" }}>
+                  {/* <img src={playIcon} alt="heroImg" sx={{ maxWidth: "70%" }} /> */}
+                  <Button
+                    variant="outlined"
+                    sx={{ color: "#881600", border: "1px solid #881600" }}
+                  >
+                    Watch Demo
+                  </Button>
+                </Box>
+              </StyledBtnContainer>
             </Box>
-            <Box sx={{ flex: "1", position: "relative" }}>
-              <Box
-                sx={{
-                  position: "absolute",
-                  bottom: "5%",
-                }}
-              >
-                <img src={heroImg} alt="heroImg" sx={{ maxWidth: "100%" }} />
+            <Box sx={{ flex: 1 }}>
+              <Box sx={{ position: "relative" }}>
+                <StyledImg src={heroImg} alt="heroImg" />
+                <StyledStats1 elevation={0}>
+                  <Stack direction="row" spacing={1}>
+                    <Typography
+                      sx={{
+                        color: "#881600",
+                        fontSize: "2.5rem",
+                        fontFamily: "Roboto",
+                        fontWeight: 500,
+                      }}
+                    >
+                      10%
+                    </Typography>
+                    <Typography
+                      sx={{
+                        padding: "10px",
+                        fontSize: "14px",
+                        fontFamily: "Poppins",
+                      }}
+                    >
+                      Of the world’s population has dyslexia
+                    </Typography>
+                  </Stack>
+                </StyledStats1>
+                <StyledStats2 elevation={0}>
+                  <Stack direction="row" spacing={1}>
+                    <Typography
+                      sx={{
+                        color: "#881600",
+                        fontSize: "2.5rem",
+                        fontFamily: "Roboto",
+                        fontWeight: 500,
+                      }}
+                    >
+                      15%
+                    </Typography>
+                    <Typography
+                      sx={{
+                        paddingTop: "10px",
+                        paddingBottom: "8px",
+                        fontSize: "14px",
+                        fontFamily: "Poppins",
+                      }}
+                    >
+                      Of the world’s population has physical disability
+                    </Typography>
+                  </Stack>
+                </StyledStats2>
               </Box>
-              <Item>
-                <Stack direction="row" spacing={1}>
-                  <Typography
-                    sx={{
-                      color: "#881600",
-                      fontSize: "2.5rem",
-                      fontFamily: "Roboto",
-                      fontWeight: 500,
-                    }}
-                  >
-                    10%
-                  </Typography>
-                  <Typography
-                    sx={{
-                      padding: "10px",
-                      fontSize: "14px",
-                      fontFamily: "Poppins",
-                    }}
-                  >
-                    Of the world’s population has dyslexia
-                  </Typography>
-                </Stack>
-              </Item>
-              <Item2>
-                <Stack direction="row" spacing={1}>
-                  <Typography
-                    sx={{
-                      color: "#881600",
-                      fontSize: "2.5rem",
-                      fontFamily: "Roboto",
-                      fontWeight: 500,
-                    }}
-                  >
-                    15%
-                  </Typography>
-                  <Typography
-                    sx={{
-                      padding: "10px",
-                      fontSize: "14px",
-                      fontFamily: "Poppins",
-                    }}
-                  >
-                    Of the world’s population has physical disability
-                  </Typography>
-                </Stack>
-              </Item2>
             </Box>
           </HeroBox>
         </Container>
-      </Box>
+      </HeroWrapper>
     </>
   );
 };
