@@ -1,12 +1,14 @@
 import React from "react";
-import { Typography } from "@mui/material";
 import Hero from "./Hero";
-
+import IntroVid from "./IntroVid";
+import UseCases from "./UseCases";
 
 const Home = () => {
   return (
     <div>
-        <Hero/>
+      <Hero />
+      <IntroVid />
+      <UseCases />
     </div>
   );
 };

@@ -5,7 +5,6 @@ import {
   Toolbar,
   Typography,
   Button,
-  Stack,
   Box,
   styled,
   Container,
@@ -13,9 +12,12 @@ import {
   MenuItem,
   IconButton,
 } from "@mui/material";
+import Tooltip, { tooltipClasses } from "@mui/material/Tooltip";
+
 import MenuIcon from "@mui/icons-material/Menu";
+import KeyboardVoiceIcon from "@mui/icons-material/KeyboardVoice";
 import { theme } from "../../../theme";
-// import { Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 import logoIcon from "../../../assets/images/logoIcon.png";
 
 const pages = ["Home", "Why Chirrpy", "Use Case", "Features"];
@@ -44,79 +46,119 @@ function ResponsiveAppBar({ onStart }) {
     fontSize: "2rem",
     color: theme.palette.primary.brickRed,
   }));
-  /*
-const StyledAppBar = styled(AppBar)(({ theme }) => ({
-  border: "none",
-  position: "sticky",
-}));
 
-const StyledBranding = styled(Typography)(({ theme }) => ({
-  fontFamily: "Titan One",
-  fontSize: "2rem",
-  color: theme.palette.primary.brickRed,
-}));
-const StyledToolbar = styled(Toolbar)(({ theme }) => ({
-  display: "flex",
-  justifyContent: "space-between",
-  paddingLeft: 0,
-  paddingRight: 0,
-}));
+  const StyledLogo = styled(Box)(({ theme }) => ({
+    width: "10%",
+    [theme.breakpoints.up("md")]: {
+      width: "3%",
+    },
+  }));
 
-const StyledBtn = styled(Button)(({ theme }) => ({
-  backgroundColor: theme.palette.primary.contrastText,
-}));
-*/
+  const MicTooltip = styled(({ className, ...props }) => (
+    <Tooltip {...props} classes={{ popper: className }} />
+  ))(({ theme }) => ({
+    [`& .${tooltipClasses.tooltip}`]: {
+      backgroundColor: "#f5f5f9",
+      color: "rgba(0, 0, 0, 0.87)",
+      maxWidth: 250,
+      fontSize: theme.typography.pxToRem(12),
+      // border: "1px solid #dadde9",
+    },
+  }));
 
   return (
-    <Box sx={{ flexGrow: 1 }}>
-      <AppBar position="static">
-        <Toolbar>
-          <img src={logoIcon} alt="logo" style={{ width: "10%" }} />
-          <StyledBranding variant="h6" component="div" sx={{ flexGrow: 1 }}>
-            Chirrpy
-          </StyledBranding>
-          {/* menus */}
-          <Box>
-            <IconButton
-              size="large"
-              color="inherit"
-              onClick={handleOpenNavMenu}
-            >
-              <MenuIcon />
-            </IconButton>
-            <Menu
-              id="menu-appbar"
-              anchorEl={anchorElNav}
-              anchorOrigin={{
-                vertical: "bottom",
-                horizontal: "left",
-              }}
-              keepMounted
-              transformOrigin={{
-                vertical: "top",
-                horizontal: "left",
-              }}
-              open={Boolean(anchorElNav)}
-              onClose={handleCloseNavMenu}
-              sx={{ display: { xs: "block", md: "none" } }}
-            >
+    <Box sx={{ flexGrow: 1, backgroundColor: "#F9E0AE" }}>
+      <Container disableGutters sx={{ boxShadow: 0 }}>
+        <AppBar position="sticky" sx={{ boxShadow: 0 }}>
+          <Toolbar>
+            <StyledLogo component="img" src={logoIcon} alt="logo"></StyledLogo>
+            <StyledBranding variant="h6" component="div" sx={{ flexGrow: 1 }}>
+              Chirrpy
+            </StyledBranding>
+            {/* menus */}
+            <Box sx={{ display: { md: "none" } }}>
+              <IconButton
+                size="large"
+                color="inherit"
+                onClick={handleOpenNavMenu}
+              >
+                <MenuIcon />
+              </IconButton>
+              <Menu
+                id="menu-appbar"
+                anchorEl={anchorElNav}
+                anchorOrigin={{
+                  vertical: "bottom",
+                  horizontal: "left",
+                }}
+                keepMounted
+                transformOrigin={{
+                  vertical: "top",
+                  horizontal: "left",
+                }}
+                open={Boolean(anchorElNav)}
+                onClose={handleCloseNavMenu}
+                sx={{ display: { xs: "block", md: "none" } }}
+              >
+                {pages.map((page) => (
+                  <MenuItem
+                    key={page}
+                    onClick={handleCloseNavMenu}
+                    sx={{
+                      backgroundColor: "#EADBC8",
+                      width: "100vw",
+                      paddingTop: "0px",
+                    }}
+                  >
+                    <Typography textAlign="center">{page}</Typography>
+                  </MenuItem>
+                ))}
+              </Menu>
+            </Box>
+            <Box sx={{ display: { xs: "none", md: "flex" } }}>
+              <MicTooltip
+                title={
+                  <>
+                    <Typography>
+                      Navigate with your voice.
+                      <em>
+                        For instance say <b>app</b>
+                      </em>
+                    </Typography>
+                  </>
+                }
+              >
+                <IconButton
+                  sx={{ position: "relative", top: "4%" }}
+                  onClick={onStart}
+                >
+                  <KeyboardVoiceIcon />
+                </IconButton>
+              </MicTooltip>
+
               {pages.map((page) => (
-                <MenuItem
+                <Button
                   key={page}
                   onClick={handleCloseNavMenu}
-                  sx={{
-                    backgroundColor: "#EADBC8",
-                    width: "100vw",
-                    paddingTop: "0px",
-                  }}
+                  sx={{ my: 2, color: "#080708", display: "block" }}
                 >
-                  <Typography textAlign="center">{page}</Typography>
-                </MenuItem>
+                  <Link
+                    to={page}
+                    style={{
+                      textDecoration: "none",
+                      color: "#000",
+                      textTransform: "capitalize",
+                      fontSize: "18px",
+                    }}
+                  >
+                    {page}
+                  </Link>
+                </Button>
               ))}
-            </Menu>
-          </Box>
-        </Toolbar>
-      </AppBar>
+            </Box>
+          </Toolbar>
+        </AppBar>
+      </Container>
     </Box>
     /*
     <Box sx={{ backgroundColor: "#F9E0AE" }}>

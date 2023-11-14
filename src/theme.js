@@ -15,8 +15,8 @@ export const theme = createTheme({
   typography: {
     heading: {
       size: 50,
-      weight: 500,
-      font: "Montserrat",
+      weight: 700,
+      font: "Space Mono",
     },
     paragraph: {
       font: "Poppins",

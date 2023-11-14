@@ -2,7 +2,6 @@ import {
   Typography,
   Box,
   Container,
-  Grid,
   Stack,
   Button,
   styled,
@@ -12,20 +11,22 @@ import CssBaseline from "@mui/material/CssBaseline";
 import { theme } from "../../../theme";
 
 import React from "react";
-import Navbar from "./Navbar";
 import heroImg from "../../../assets/images/heroImage.png";
-import playIcon from "../../../assets/images/play.png";
+import PlayCircleOutlineIcon from "@mui/icons-material/PlayCircleOutline";
 
 const Hero = () => {
   const HeroWrapper = styled(Box)(({ theme }) => ({
     backgroundColor: theme.palette.primary.main,
     minHeight: "100vh",
+    [theme.breakpoints.up("md")]: {
+      minHeight: "80vh",
+    },
   }));
   const HeroBox = styled(Box)(({ theme }) => ({
     display: "flex",
     flexDirection: "column",
 
-    [theme.breakpoints.up("sm")]: {
+    [theme.breakpoints.up("md")]: {
       display: "flex",
       flexDirection: "row",
       justifyContent: "center",
@@ -34,7 +35,8 @@ const Hero = () => {
   }));
 
   const HeadingChar = styled(Typography)(({ theme }) => ({
-    fontSize: "2rem",
+    fontSize: "1.7rem",
+    fontFamily: theme.typography.heading.font,
     color: theme.palette.primary.charcoal,
     [theme.breakpoints.up("sm")]: {
       fontSize: theme.typography.heading.size,
@@ -44,8 +46,10 @@ const Hero = () => {
     },
   }));
   const HeadingRed = styled(Typography)(({ theme }) => ({
-    fontSize: "2rem",
+    fontSize: "1.7rem",
+    fontFamily: theme.typography.heading.font,
     color: theme.palette.primary.brickRed,
+
     [theme.breakpoints.up("sm")]: {
       fontSize: theme.typography.heading.size,
       fontWeight: theme.typography.heading.weight,
@@ -61,20 +65,25 @@ const Hero = () => {
     marginTop: theme.spacing(2),
     fontWeight: 100,
   }));
-  const StyledBtnContainer = styled(Box)(() => ({
+  const StyledBtnContainer = styled(Box)(({ theme }) => ({
     display: "flex",
-    justifyContent: "space-between",
+    gap: "1rem",
+    // justifyContent: "space-between",
     marginBottom: "1rem",
+    [theme.breakpoints.up("md")]: {
+      gap: "2rem",
+      // justifyContent: "space-evenly",
+    },
   }));
   const UsersBox = styled(Box)(({ theme }) => ({
     borderColor: "#881600",
     borderLeft: "4px solid #881600",
     paddingLeft: "10px",
-    [theme.breakpoints.up("sm")]: {
+    [theme.breakpoints.up("md")]: {
       display: "flex",
       justifyContent: "space-evenly",
-      borderLeft: "solid 3px",
-      borderRight: "solid 3px",
+      borderLeft: "solid 3px #881600",
+      borderRight: "solid 3px #881600",
     },
   }));
   const StyledStack = styled(Stack)(() => ({
@@ -84,19 +93,22 @@ const Hero = () => {
   const TryBtn = styled(Button)(({ theme }) => ({
     backgroundColor: "#881600",
     color: "#fff",
-    width: "185px",
+    // width: "185px",
     textTransform: "capitalize",
-    padding: "10px 5px",
-    fontSize: "1.3rem",
+    padding: "10px 15px",
+    fontSize: "1rem",
   }));
   const StyledStats1 = styled(Paper)(() => ({
     height: "80px",
     width: "300px",
     padding: "10px 10px",
     position: "absolute",
-    bottom: "-20%",
+    bottom: "1%",
     right: "5%",
     borderRadius: "10px",
+    [theme.breakpoints.up("md")]: {
+      bottom: "-50%",
+    },
   }));
   const StyledStats2 = styled(Paper)(() => ({
     height: "80px",
@@ -106,10 +118,15 @@ const Hero = () => {
     position: "absolute",
     top: "1%",
     borderRadius: "10px",
+    [theme.breakpoints.up("md")]: {
+      top: "19%",
+    },
   }));
 
-  const StyledImg = styled("img")(() => ({
+  const StyledImg = styled(Box)(({ theme }) => ({
     width: "100%",
+
+    [theme.breakpoints.up("md")]: {},
   }));
   return (
     <>
@@ -157,10 +174,15 @@ const Hero = () => {
                   <TryBtn>Try it now</TryBtn>
                 </Box>
                 <Box sx={{ display: "flex" }}>
-                  {/* <img src={playIcon} alt="heroImg" sx={{ maxWidth: "70%" }} /> */}
                   <Button
                     variant="outlined"
-                    sx={{ color: "#881600", border: "1px solid #881600" }}
+                    startIcon={<PlayCircleOutlineIcon />}
+                    sx={{
+                      color: "#881600",
+                      border: "1px solid #881600",
+                      textTransform: "capitalize",
+                      fontFamily: "Poppins",
+                    }}
                   >
                     Watch Demo
                   </Button>
@@ -169,7 +191,12 @@ const Hero = () => {
             </Box>
             <Box sx={{ flex: 1 }}>
               <Box sx={{ position: "relative" }}>
-                <StyledImg src={heroImg} alt="heroImg" />
+                <StyledImg
+                  component="img"
+                  src={heroImg}
+                  alt="heroImg"
+                ></StyledImg>
+                {/* <StyledImg src={heroImg} alt="heroImg" sx={{ position: {} }} /> */}
                 <StyledStats1 elevation={0}>
                   <Stack direction="row" spacing={1}>
                     <Typography
