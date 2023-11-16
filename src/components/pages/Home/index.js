@@ -3,6 +3,6 @@ import Hero from "./Hero";
 import Features from "./Features";
 import Footer from "./Footer";
 import IntroVid from "./IntroVid";
-import UseCases from "./UseCases";
+import UseCases from "./UseCases/UseCases";
 
 export { Navbar, Hero, Features, IntroVid, UseCases, Footer };
