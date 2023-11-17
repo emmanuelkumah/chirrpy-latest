@@ -1,6 +1,6 @@
 import Navbar from "./Navbar";
 import Hero from "./Hero";
-import Features from "./Features";
+import Features from "../Features/Features";
 import Footer from "./Footer";
 import IntroVid from "./IntroVid";
 import UseCases from "./UseCases/UseCases";
