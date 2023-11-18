@@ -3,6 +3,7 @@ import Hero from "./Hero";
 import IntroVid from "./IntroVid";
 import UseCases from "./UseCases/UseCases";
 import Features from "../Features/Features";
+import Footer from "./Footer";
 
 const Home = () => {
   return (
@@ -11,6 +12,7 @@ const Home = () => {
       <IntroVid />
       <UseCases />
       <Features />
+      <Footer/>
     </>
   );
 };

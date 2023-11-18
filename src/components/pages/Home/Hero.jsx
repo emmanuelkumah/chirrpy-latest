@@ -68,11 +68,10 @@ const Hero = () => {
   const StyledBtnContainer = styled(Box)(({ theme }) => ({
     display: "flex",
     gap: "1rem",
-    // justifyContent: "space-between",
     marginBottom: "1rem",
     [theme.breakpoints.up("md")]: {
       gap: "2rem",
-      // justifyContent: "space-evenly",
+      paddingTop: "2rem",
     },
   }));
   const UsersBox = styled(Box)(({ theme }) => ({
@@ -86,28 +85,40 @@ const Hero = () => {
       borderRight: "solid 3px #881600",
     },
   }));
-  const StyledStack = styled(Stack)(() => ({
-    marginBottom: "1rem",
-    direction: "row",
-  }));
+
   const TryBtn = styled(Button)(({ theme }) => ({
     backgroundColor: "#881600",
+    "&:hover": {
+      backgroundColor: "#2B0504",
+    },
     color: "#fff",
-    // width: "185px",
     textTransform: "capitalize",
     padding: "10px 15px",
     fontSize: "1rem",
+  }));
+  const DemoBtn = styled(Button)(({ theme }) => ({
+    color: "#881600",
+    border: "1px solid #881600",
+    textTransform: "capitalize",
+    fontFamily: "Poppins",
+
+    "&:hover": {
+      backgroundColor: "#881600",
+      color: "#fff",
+    },
   }));
   const StyledStats1 = styled(Paper)(() => ({
     height: "80px",
     width: "300px",
     padding: "10px 10px",
     position: "absolute",
-    bottom: "1%",
-    right: "5%",
+    top: "55%",
+    right: "1%",
     borderRadius: "10px",
     [theme.breakpoints.up("md")]: {
-      bottom: "-50%",
+      position: "absolute",
+      top: "82%",
+      right: "-10%",
     },
   }));
   const StyledStats2 = styled(Paper)(() => ({
@@ -119,14 +130,16 @@ const Hero = () => {
     top: "1%",
     borderRadius: "10px",
     [theme.breakpoints.up("md")]: {
-      top: "19%",
+      top: "12%",
     },
   }));
-
-  const StyledImg = styled(Box)(({ theme }) => ({
+  const ImageBox = styled(Box)(({ theme }) => ({
     width: "100%",
-
-    [theme.breakpoints.up("md")]: {},
+    position: "relative",
+    [theme.breakpoints.up("md")]: {
+      position: "relative",
+      top: "20%",
+    },
   }));
   return (
     <>
@@ -174,77 +187,65 @@ const Hero = () => {
                   <TryBtn>Try it now</TryBtn>
                 </Box>
                 <Box sx={{ display: "flex" }}>
-                  <Button
+                  <DemoBtn
                     variant="outlined"
                     startIcon={<PlayCircleOutlineIcon />}
-                    sx={{
-                      color: "#881600",
-                      border: "1px solid #881600",
-                      textTransform: "capitalize",
-                      fontFamily: "Poppins",
-                    }}
                   >
                     Watch Demo
-                  </Button>
+                  </DemoBtn>
                 </Box>
               </StyledBtnContainer>
             </Box>
-            <Box sx={{ flex: 1 }}>
-              <Box sx={{ position: "relative" }}>
-                <StyledImg
-                  component="img"
-                  src={heroImg}
-                  alt="heroImg"
-                ></StyledImg>
-                {/* <StyledImg src={heroImg} alt="heroImg" sx={{ position: {} }} /> */}
-                <StyledStats1 elevation={0}>
-                  <Stack direction="row" spacing={1}>
-                    <Typography
-                      sx={{
-                        color: "#881600",
-                        fontSize: "2.5rem",
-                        fontFamily: "Roboto",
-                        fontWeight: 500,
-                      }}
-                    >
-                      10%
-                    </Typography>
-                    <Typography
-                      sx={{
-                        padding: "10px",
-                        fontSize: "14px",
-                        fontFamily: "Poppins",
-                      }}
-                    >
-                      Of the world’s population has dyslexia
-                    </Typography>
-                  </Stack>
-                </StyledStats1>
-                <StyledStats2 elevation={0}>
-                  <Stack direction="row" spacing={1}>
-                    <Typography
-                      sx={{
-                        color: "#881600",
-                        fontSize: "2.5rem",
-                        fontFamily: "Roboto",
-                        fontWeight: 500,
-                      }}
-                    >
-                      15%
-                    </Typography>
-                    <Typography
-                      sx={{
-                        paddingTop: "10px",
-                        paddingBottom: "8px",
-                        fontSize: "14px",
-                        fontFamily: "Poppins",
-                      }}
-                    >
-                      Of the world’s population has physical disability
-                    </Typography>
-                  </Stack>
-                </StyledStats2>
-              </Box>
+            <Box sx={{ flex: 1, position: "relative" }}>
+              <ImageBox component="img" src={heroImg} alt="heroImg" />
+
+              <StyledStats1 elevation={0}>
+                <Stack direction="row" spacing={1}>
+                  <Typography
+                    sx={{
+                      color: "#881600",
+                      fontSize: "2.5rem",
+                      fontFamily: "Roboto",
+                      fontWeight: 500,
+                    }}
+                  >
+                    10%
+                  </Typography>
+                  <Typography
+                    sx={{
+                      padding: "10px",
+                      fontSize: "14px",
+                      fontFamily: "Poppins",
+                    }}
+                  >
+                    Of the world’s population has dyslexia
+                  </Typography>
+                </Stack>
+              </StyledStats1>
+              <StyledStats2 elevation={0}>
+                <Stack direction="row" spacing={1}>
+                  <Typography
+                    sx={{
+                      color: "#881600",
+                      fontSize: "2.5rem",
+                      fontFamily: "Roboto",
+                      fontWeight: 500,
+                    }}
+                  >
+                    15%
+                  </Typography>
+                  <Typography
+                    sx={{
+                      paddingTop: "10px",
+                      paddingBottom: "8px",
+                      fontSize: "14px",
+                      fontFamily: "Poppins",
+                    }}
+                  >
+                    Of the world’s population has physical disability
+                  </Typography>
+                </Stack>
+              </StyledStats2>
             </Box>
           </HeroBox>
         </Container>
