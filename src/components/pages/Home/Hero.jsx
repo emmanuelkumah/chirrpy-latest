@@ -15,6 +15,19 @@ import heroImg from "../../../assets/images/heroImage.png";
 import PlayCircleOutlineIcon from "@mui/icons-material/PlayCircleOutline";
 
 const Hero = () => {
+  const StyleDiv = styled("div")({
+    [theme.breakpoints.up("md")]: {
+      position: "absolute",
+      top: "30%",
+      right: "-70%",
+      width: "250px",
+      height: "250px",
+      background: "#881600",
+      borderRadius: "50%",
+      filter: "blur(90px)",
+    },
+  });
+ 
   const HeroWrapper = styled(Box)(({ theme }) => ({
     backgroundColor: theme.palette.primary.main,
     minHeight: "100vh",
@@ -146,7 +159,9 @@ const Hero = () => {
       <HeroWrapper>
         <Container>
           <HeroBox>
-            <Box sx={{ flex: "1", marginTop: "3rem" }}>
+            <Box sx={{ flex: "1", marginTop: "3rem", position: "relative" }}>
+              <StyleDiv></StyleDiv>
+
               <Stack direction="row" spacing={2}>
                 <HeadingChar>Expand</HeadingChar>
                 <HeadingRed>Accessibility</HeadingRed>

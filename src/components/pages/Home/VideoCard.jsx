@@ -14,11 +14,11 @@ const VideoCard = () => {
   const StyledIcon = styled(Box)(({ theme }) => ({
     position: "absolute",
 
-    top: "170%",
+    top: "50%",
     left: "40%",
     color: "white",
     [theme.breakpoints.up("md")]: {
-      top: "125%",
+      top: "50%",
       left: "50%",
     },
   }));

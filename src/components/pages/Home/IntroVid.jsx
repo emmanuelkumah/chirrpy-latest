@@ -27,19 +27,48 @@ const StyledSubText = styled(Typography)(({ theme }) => ({
     fontSize: theme.typography.paragraph.size,
   },
 }));
+const StyleDiv = styled("div")({
+  [theme.breakpoints.up("md")]: {
+    position: "absolute",
+    top: "10%",
+    right: "5%",
+
+    width: "300px",
+    height: "300px",
+    background: "#881600",
+    borderRadius: "50%",
+    filter: "blur(400px)",
+  },
+});
+const StyleDiv2 = styled("div")({
+  [theme.breakpoints.up("md")]: {
+    position: "absolute",
+    top: "50%",
+    left: "-5%",
+
+    width: "300px",
+    height: "300px",
+    background: "#F9E0AE",
+    borderRadius: "50%",
+    filter: "blur(200px)",
+  },
+});
 
 const IntroVid = () => {
   return (
-    <Box>
+    <Box sx={{ position: "relative" }}>
       <Container>
         <Box>
+          <StyleDiv></StyleDiv>
           <StyledHeading>Why We Built Chirrpy</StyledHeading>
+
           <StyledSubText>
             Transform your spoken words into written text with unparalleled
             accuracy and ease.
           </StyledSubText>
         </Box>
         <VideoCard />
+        <StyleDiv2></StyleDiv2>
       </Container>
     </Box>
   );
