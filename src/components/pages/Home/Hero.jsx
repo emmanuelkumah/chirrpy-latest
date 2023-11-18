@@ -27,11 +27,13 @@ const Hero = () => {
       filter: "blur(90px)",
     },
   });
- 
+
   const HeroWrapper = styled(Box)(({ theme }) => ({
     backgroundColor: theme.palette.primary.main,
+    marginTop: "2rem",
     minHeight: "100vh",
     [theme.breakpoints.up("md")]: {
+      marginTop: "4.5rem",
       minHeight: "80vh",
     },
   }));

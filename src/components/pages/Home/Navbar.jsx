@@ -62,14 +62,13 @@ function ResponsiveAppBar({ onStart }) {
       color: "rgba(0, 0, 0, 0.87)",
       maxWidth: 250,
       fontSize: theme.typography.pxToRem(12),
-      // border: "1px solid #dadde9",
     },
   }));
 
   return (
     <Box sx={{ flexGrow: 1, backgroundColor: "#F9E0AE" }}>
-      <Container disableGutters sx={{ boxShadow: 0 }}>
-        <AppBar position="sticky" sx={{ boxShadow: 0 }}>
+      <AppBar position="fixed" sx={{ boxShadow: 0 }}>
+        <Container disableGutters sx={{ boxShadow: 0 }}>
           <Toolbar>
             <StyledLogo component="img" src={logoIcon} alt="logo"></StyledLogo>
             <StyledBranding variant="h6" component="div" sx={{ flexGrow: 1 }}>
@@ -157,77 +156,9 @@ function ResponsiveAppBar({ onStart }) {
               ))}
             </Box>
           </Toolbar>
-        </AppBar>
-      </Container>
+        </Container>
+      </AppBar>
     </Box>
-    /*
-    <Box sx={{ backgroundColor: "#F9E0AE" }}>
-      <Container>
-        <StyledAppBar variant="outlined">
-          <StyledToolbar disableGutters>
-            <Box sx={{ display: "flex" }}>
-              <img src={logoIcon} alt="logo" style={{ width: "10%" }} />
-              <StyledBranding
-                variant="h2"
-                component="h1"
-                // sx={{ flexGrow: 1, color: "#fff" }}
-              >
-                Chirrpy
-              </StyledBranding>
-            </Box>
-            <IconButton
-              size="large"
-              edge="start"
-              color="inherit"
-              aria-label="menu"
-              sx={{ mr: 2 }}
-            >
-              <MenuIcon />
-            </IconButton>
-            <Stack
-              direction="row"
-              sx={{ display: { xs: "none", sm: "block" } }}
-            >
-              <Button onClick={onStart} sx={{ backgroundColor: "green" }}>
-                <Typography>Start</Typography>
-              </Button>
-              <Box>
-                {pages.map((page) => (
-                  <Button>
-                    <Link
-                      to={page}
-                      style={{
-                        textDecoration: "none",
-                        color: "#000",
-                        textTransform: "capitalize",
-                        fontSize: "18px",
-                      }}
-                    >
-                      {page}
-                    </Link>
-                  </Button>
-                ))}
-              </Box>
-              <Box>
-                <StyledBtn>
-                  <Link
-                    to="/app"
-                    style={{
-                      textDecoration: "none",
-                      textTransform: "capitalize",
-                      color: "#fff",
-                    }}
-                  >
-                    App
-                  </Link>
-                </StyledBtn>
-              </Box>
-            </Stack>
-          </StyledToolbar>
-        </StyledAppBar>
-      </Container>
-    </Box>
-    */
   );
 }
 export default ResponsiveAppBar;
