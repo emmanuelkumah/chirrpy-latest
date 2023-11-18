@@ -7,7 +7,6 @@ import {
   styled,
   Paper,
 } from "@mui/material";
-import CssBaseline from "@mui/material/CssBaseline";
 import { theme } from "../../../theme";
 
 import React from "react";

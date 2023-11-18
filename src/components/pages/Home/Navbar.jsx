@@ -22,7 +22,7 @@ import logoIcon from "../../../assets/images/logoIcon.png";
 
 const pages = ["Home", "Why Chirrpy", "Use Case", "Features"];
 
-function ResponsiveAppBar({ onStart }) {
+function NavBar({ onStart }) {
   const [anchorElNav, setAnchorElNav] = useState(null);
   const [anchorElUser, setAnchorElUser] = useState(null);
 
@@ -161,4 +161,4 @@ function ResponsiveAppBar({ onStart }) {
     </Box>
   );
 }
-export default ResponsiveAppBar;
+export default NavBar;
